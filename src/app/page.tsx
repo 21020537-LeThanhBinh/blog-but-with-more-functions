@@ -15,28 +15,7 @@ export default function Home() {
           <li>posts</li>
           <ul>
             <li>
-              <span>2022-12-08 </span>
-              <a href="/chatgpt-honest.html">chatgpt is pretty honest about itself</a>
-            </li>
-            <li>
-              <span>2021-06-13 </span> 
-              <a href="/url-trick.html">a trivial, dangerous, false assumption on links</a>
-            </li>
-            <li>
-              <span>2020-10-31 </span>
-              <a href="/shame-based-git.html">the shame-based approach to learning git</a>
-            </li>
-            <li>
-              <span>2020-09-18 </span>
-              <a href="/stack-overflow-antipattern.html">the stack overflow antipattern</a>
-            </li>
-            <li>
-              <span>2020-07-23 </span>
-              <a href="/code-and-memory.html">github arctic vault, code and memory</a>
-            </li>
-            <li>
-              <span>2020-07-21 </span>
-              <a href="/intro.html">what this blog is</a>
+              2023-05-24 <a href="/intro.html">what this blog is</a>
             </li>
           </ul>
         </ul>

@@ -1,4 +1,5 @@
 import BackLink from "@/components/backLink"
+import SubscribeForm from "@/components/subscribeForm"
 
 export default function IntroLayout({
   children,
@@ -6,11 +7,13 @@ export default function IntroLayout({
   children: React.ReactNode
 }) {
   return (
-    <main className="page-content" aria-label="Content">
+    <main aria-label="Content" className="page-content">
       <div className="w">
         <BackLink />
 
         {children}
+
+        <SubscribeForm />
       </div>
     </main>
   )
