@@ -1,10 +1,15 @@
 import ChallengeCalc from "./challengeCalc";
 
+export const metadata = {
+  title: 'My JLPT N2 challenge',
+  description: 'My experience of getting JLPT N2 in ... months.',
+}
+
 export default function Intro() {
   return (
     <article>
       <p className="post-meta">
-        <time dateTime="2023-05-24 00:00:00 +0000">2023-05-25</time>
+        <time dateTime="2023-05-25 00:00:00 +0000">2023-05-25</time>
       </p>
 
       <h1>My experience of getting JLPT N2 in ... months</h1>

@@ -19,7 +19,7 @@ export default function SubscribeForm() {
         <input type="submit" value="Subscribe" />
         <br />
         <small>
-          No spam, unsubscribe at any time (or use <Link href="/feed.xml">RSS feed</Link>)
+          No spam, unsubscribe at any time (or use <Link href="#">RSS feed</Link>)
         </small>
       </form>
     </>

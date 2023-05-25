@@ -11,7 +11,7 @@ export default function Home() {
           <ul>
             <li><Link href="mailto:lethanhbinh6203@gmail.com">email</Link></li>
             <li><Link href="https://github.com/lethanksbinh">github</Link></li>
-            <li>keep in touch: <Link href="/newsletter.html">newsletter</Link>, <Link href="/feed.xml">rss feed</Link></li>
+            <li>keep in touch: <Link href="#">newsletter</Link>, <Link href="#">rss feed</Link></li>
           </ul>
 
           <li>posts</li>

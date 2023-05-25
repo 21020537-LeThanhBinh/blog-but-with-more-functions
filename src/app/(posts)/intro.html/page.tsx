@@ -1,5 +1,10 @@
 import SumOfInts from "./sumOfInts";
 
+export const metadata = {
+  title: 'What This Blog Is',
+  description: 'What This Blog Is.',
+}
+
 export default function Intro() {
   return (
     <article>

@@ -12,8 +12,8 @@ const levels = new Map([
 ])
 
 export default function ChallengeCalc() {
-  const [clv, setClv] = useState("N6")
-  const [tlv, setTlv] = useState("N2")
+  const [clv, setClv] = useState("")
+  const [tlv, setTlv] = useState("")
   const [learnedVocab, setLearnedVocab] = useState(0)
   const [maxLearningVocabPerDay, setMaxLearningVocabPerDay] = useState(0)
   const [minLearningVocabPerDay, setMinLearningVocabPerDay] = useState(0)
@@ -41,10 +41,10 @@ export default function ChallengeCalc() {
 
   return (
     <div className="function">
-      <p>Your current JLPT level:</p>
+      <label htmlFor="clv"><p>Your current JLPT level:</p></label>
       <input list="lvs" type="text" name="clv" id="clv" value={clv} onChange={(e) => setClv(e.target.value.toLocaleUpperCase())} placeholder="N?" />
 
-      <p>Your target JLPT level:</p>
+      <label htmlFor="tlv"><p>Your target JLPT level:</p></label>
       <input list="lvs" type="text" name="tlv" id="tlv" value={tlv} onChange={(e) => setTlv(e.target.value.toLocaleUpperCase())} placeholder="N?" />
 
       <datalist id="lvs">
@@ -56,10 +56,10 @@ export default function ChallengeCalc() {
         <option value="N6" />
       </datalist>
 
-      <p>How many JLPT vocabulary above {clv || "N6"} did you learned:</p>
+      <label htmlFor="learnedVocab"><p>How many JLPT vocabulary above {clv || "N6"} did you learned:</p></label>
       <input type="number" name="learnedVocab" id="learnedVocab" value={learnedVocab} onChange={(e) => setLearnedVocab(parseInt(e.target.value))} />
 
-      <p>Your JLPT test day:</p>
+      <label htmlFor="testDay"><p>Your JLPT test day:</p></label>
       <input type="date" name="testDay" id="testDay" value={testDay} onChange={(e) => setTestDay(e.target.value)} />
 
       {isNaN(minLearningVocabPerDay) || isNaN(maxLearningVocabPerDay) || !testDay ? (
