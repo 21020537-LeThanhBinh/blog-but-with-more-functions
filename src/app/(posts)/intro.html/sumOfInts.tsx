@@ -16,12 +16,13 @@ export default function SumOfInts() {
   }, [numb1, numb2])
 
   return (
-    <>
+    <div className="function">
+      <p></p>
       <input type="number" name="numb1" id="numb1" value={numb1} onChange={(e) => setNumb1(parseInt(e.target.value) | 0)} />
       +
       <input type="number" name="numb2" id="numb2" value={numb2} onChange={(e) => setNumb2(parseInt(e.target.value) | 0)} />
-      =
-      {ans}
-    </>
+      ={ans}
+      <p></p>
+    </div>
   )
 }

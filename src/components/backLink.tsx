@@ -1,5 +1,7 @@
+import Link from "next/link";
+
 export default function BackLink() {
   return (
-    <a href="/">..</a>
+    <Link href="/">..</Link>
   )
 }

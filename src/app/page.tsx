@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <main className="page-content" aria-label="Content">
@@ -7,15 +9,18 @@ export default function Home() {
         <ul>
           <li>me</li>
           <ul>
-            <li><a href="mailto:lethanhbinh6203@gmail.com">email</a></li>
-            <li><a href="https://github.com/lethanksbinh">github</a></li>
-            <li>keep in touch: <a href="/newsletter.html">newsletter</a>, <a href="/feed.xml">rss feed</a></li>
+            <li><Link href="mailto:lethanhbinh6203@gmail.com">email</Link></li>
+            <li><Link href="https://github.com/lethanksbinh">github</Link></li>
+            <li>keep in touch: <Link href="/newsletter.html">newsletter</Link>, <Link href="/feed.xml">rss feed</Link></li>
           </ul>
 
           <li>posts</li>
           <ul>
             <li>
-              2023-05-24 <a href="/intro.html">what this blog is</a>
+              2023-05-25 <Link href="/my-jlpt-n2-challenge.html">my experience of getting JLPT N2 in ... months</Link>
+            </li>
+            <li>
+              2023-05-24 <Link href="/intro.html">what this blog is</Link>
             </li>
           </ul>
         </ul>

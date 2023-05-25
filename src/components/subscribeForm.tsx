@@ -1,14 +1,16 @@
 'use client'
 
+import Link from "next/link"
+
 export default function SubscribeForm() {
   return (
     <>
       <hr data-content="keep in touch"></hr>
 
-      <form className="subscribe-form" action="https://tinyletter.com/riggraz" method="post" target="popupwindow"
-        onSubmit={() => {
-          window.open('https://tinyletter.com/riggraz', 'popupwindow', 'scrollbars=yes,width=800,height=600')
-          return true
+      <form className="subscribe-form" action="" method="post" target="popupwindow"
+        onSubmit={(e) => {
+          e.preventDefault()
+          alert("Updating ...")
         }}
       >
         <label htmlFor="tlemail">Newsletter:</label>
@@ -17,7 +19,7 @@ export default function SubscribeForm() {
         <input type="submit" value="Subscribe" />
         <br />
         <small>
-          No spam, unsubscribe at any time (or use <a href="/feed.xml">RSS feed</a>)
+          No spam, unsubscribe at any time (or use <Link href="/feed.xml">RSS feed</Link>)
         </small>
       </form>
     </>
