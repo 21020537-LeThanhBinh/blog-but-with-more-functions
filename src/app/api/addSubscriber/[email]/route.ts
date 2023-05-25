@@ -5,7 +5,13 @@ export async function POST(request: Request, { params }: { params: { email: stri
   try {
     const email = params.email
 
-    const auth = await google.auth.getClient({ scopes: ['https://www.googleapis.com/auth/spreadsheets'] });
+    const auth = await google.auth.getClient({
+      scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+      credentials: {
+        client_email: process.env.GOOGLE_CLIENT_EMAIL,
+        private_key: process.env.GOOGLE_PRIVATE_KEY!.replace(/\\n/g, "\n"),
+      },
+    });
     const sheets = google.sheets({ version: 'v4', auth });
 
     const range = `Sheet1!A1:A100`;
