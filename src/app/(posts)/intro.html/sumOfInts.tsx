@@ -1,19 +1,30 @@
 'use client'
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
+import { event } from "@/lib/ga"
 
 export default function SumOfInts() {
   const [numb1, setNumb1] = useState(0)
   const [numb2, setNumb2] = useState(0)
   const [ans, setAns] = useState(0)
+  const functionUsed = useRef<boolean>(false)
 
   useEffect(() => {
+    (numb1 + numb2) && onUseFunction()
+
     const interval = setInterval(() => {
       setAns(Math.round(Math.random() * (numb1 + numb2) * 10))
     }, 1000)
 
     return () => clearInterval(interval)
   }, [numb1, numb2])
+
+  function onUseFunction() {
+    if (functionUsed.current) return
+    
+    functionUsed.current = true
+    event({ action: 'click', params: { function_name: "SumOfInts" } })
+  }
 
   return (
     <div className="function">

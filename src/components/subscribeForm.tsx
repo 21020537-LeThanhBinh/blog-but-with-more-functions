@@ -1,7 +1,7 @@
 'use client'
 
-import Link from "next/link"
 import { useState } from "react"
+import { event } from "@/lib/ga"
 
 export default function SubscribeForm() {
   const [email, setEmail] = useState('')
@@ -20,16 +20,17 @@ export default function SubscribeForm() {
             .then(() => setSubscribed(false))
             .catch((err) => console.error(err))
           setEmail('')
+          event({ action: 'subscribe', params: { email } })
         }}
       >
         <label htmlFor="tlemail">Newsletter:</label>
         <input type="text" className="w-[140px]" name="email" id="tlemail" placeholder="your email" value={email} onChange={(e) => setEmail(e.target.value)} />
         <input type="hidden" value="1" name="embed" />
         <input type="submit" value="Subscribe" />
-        <span className={subscribed ? '' : 'hide'}>✓</span>
+        <span style={subscribed ? {} : { visibility: 'hidden' }}>✓</span>
         <br />
         <small>
-          No spam, unsubscribe at any time (or use <Link href="#">RSS feed</Link>)
+          No spam, unsubscribe at any time
         </small>
       </form>
     </>

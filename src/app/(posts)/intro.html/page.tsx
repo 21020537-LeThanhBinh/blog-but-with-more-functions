@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import SumOfInts from "./sumOfInts";
 
 export const metadata = {
@@ -17,20 +18,22 @@ export default function Intro() {
       <p>With this, I&apos;ll try my best to share everything I know about the world in short posts and mini functions. Like this:</p>
 
       <p>What&apos;s the sum of two numbers?</p>
-      <SumOfInts />
-
+      <Suspense fallback={<p>Loading SumOfInts...</p>}>
+        <SumOfInts />
+      </Suspense>
+      
       <p>.</p>
       <p>.</p>
       <p>.</p>
 
       <p>Did you think the answer&apos;s wrong? Well, let me explain.</p>
-      
+
       <p>In the question above, I write &quot;sum of two numbers&quot;, but I didn&apos;t specify numbers of what?</p>
-      
+
       <p>In terms of mathematics, &quot;1 plus 1 is 2&quot;, which might transfer to &quot;I have 1 apple, someone give me an another one, so I must have 2 apples&quot;.</p>
 
       <p>Sounds right, but it&apos;s a simplifying way to think about the world and I think it&apos;s perfectly normal to teach children like this, however, it&apos;s actually much more complicated.</p>
-      
+
       <p>If I have an apple and someone give me an another one, I might just eat one, or sell it, or make apple juice, ... Even if I don&apos;t do anything, the apples might just get deformed over a period of time.</p>
 
       <p>So, the answer is really depends on what objects are we counting, how&apos;s the environment effecting them and over how long?</p>

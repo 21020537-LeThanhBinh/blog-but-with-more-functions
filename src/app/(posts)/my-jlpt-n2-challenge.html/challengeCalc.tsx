@@ -1,6 +1,7 @@
 'use client'
 
-import { useEffect, useState } from "react"
+import { event } from "@/lib/ga"
+import { useEffect, useRef, useState } from "react"
 
 const levels = new Map([
   ["N1", 10000],
@@ -19,13 +20,15 @@ export default function ChallengeCalc() {
   const [minLearningVocabPerDay, setMinLearningVocabPerDay] = useState(0)
   const [testDay, setTestDay] = useState("")
   const [isTooLate, setIsTooLate] = useState(false)
+  const functionUsed = useRef<boolean>(false)
 
   useEffect(() => {
-    if (!levels.has(clv) || !levels.has(tlv)) {
+    if (!levels.has(clv) || !levels.has(tlv) || !testDay) {
       setMaxLearningVocabPerDay(NaN)
       setMinLearningVocabPerDay(NaN)
       return
     }
+    onUseFunction()
 
     const maxLearningVocab = levels.get(tlv)! - levels.get(clv)! - learnedVocab
     const minLearningVocab = levels.get(tlv)! / 2 + levels.get("N" + (parseInt(tlv[1]) + 1))! / 2 - levels.get(clv)! - learnedVocab
@@ -38,6 +41,13 @@ export default function ChallengeCalc() {
     setMinLearningVocabPerDay(Math.max(Math.ceil(minLearningVocab / remainingDays), 0))
 
   }, [clv, tlv, learnedVocab, testDay])
+
+  function onUseFunction() {
+    if (functionUsed.current) return
+    
+    functionUsed.current = true
+    event({ action: 'click', params: { function_name: "ChallengeCalc" } })
+  }
 
   return (
     <div className="function">
@@ -62,12 +72,12 @@ export default function ChallengeCalc() {
       <label htmlFor="testDay"><p>Your JLPT test day:</p></label>
       <input type="date" name="testDay" id="testDay" value={testDay} onChange={(e) => setTestDay(e.target.value)} />
 
-      {isNaN(minLearningVocabPerDay) || isNaN(maxLearningVocabPerDay) || !testDay ? (
+      {isNaN(minLearningVocabPerDay) || isNaN(maxLearningVocabPerDay) ? (
         <p></p>
-      ) : !minLearningVocabPerDay && !maxLearningVocabPerDay ? (
-        <p>You don&apos;t need to learn more vocabulary. Just focus on reading, listening.</p>
       ) : isTooLate ? (
         <p>It&apos;s too late!</p>
+      ) : !minLearningVocabPerDay && !maxLearningVocabPerDay ? (
+        <p>You don&apos;t need to learn more vocabulary. Just focus on reading, listening.</p>
       ) : (
         <p>You might want to learn <b>{minLearningVocabPerDay}</b> to <b>{maxLearningVocabPerDay}</b> new words per day starting from today! Also, focus on reading, listening.</p>
       )}

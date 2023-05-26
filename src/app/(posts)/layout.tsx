@@ -1,5 +1,5 @@
-import BackLink from "@/components/backLink"
 import SubscribeForm from "@/components/subscribeForm"
+import Link from "next/link"
 
 export default function IntroLayout({
   children,
@@ -9,7 +9,7 @@ export default function IntroLayout({
   return (
     <main aria-label="Content" className="page-content">
       <div className="w">
-        <BackLink />
+        <Link href="/">..</Link>
 
         {children}
 
